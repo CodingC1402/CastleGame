@@ -9,16 +9,30 @@ public class AnimationScript : MonoBehaviour
     const string Y_SPEED = "ySpeed";
     const string ON_GROUND = "onGround";
     const string JUMP = "jump";
+    const string ATTACK = "attack";
+    const string ATTACKING = "attacking";
 
     [SerializeField] Animator _animator;
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] FeetScript _feetScript;
 
-    private float xSpeed { get => _animator.GetFloat(X_SPEED); set => _animator.SetFloat(X_SPEED, Mathf.Abs(value));}
-    private float ySpeed { get => _animator.GetFloat(Y_SPEED); set => _animator.SetFloat(Y_SPEED, value);}
-    private bool onGround { get => _animator.GetBool(ON_GROUND); set => _animator.SetBool(ON_GROUND, value);}
-    public void triggerJump() {
+    public float xSpeed { get => _animator.GetFloat(X_SPEED); private set => _animator.SetFloat(X_SPEED, Mathf.Abs(value));}
+    public float ySpeed { get => _animator.GetFloat(Y_SPEED); private set => _animator.SetFloat(Y_SPEED, value);}
+    public bool onGround { get => _animator.GetBool(ON_GROUND); private set => _animator.SetBool(ON_GROUND, value);}
+    public bool attacking { get => _animator.GetBool(ATTACKING); private set => _animator.SetBool(ATTACKING, value);}
+    public void TriggerJump() {
         _animator.SetTrigger(JUMP);
+    }
+    public void TriggerAttack() {
+        _animator.SetTrigger(ATTACK);
+        attacking = true;
+    }
+    public void StopAttack() {
+        attacking = false;
+    }
+
+    public void TransitToIdle() {
+        StopAttack();
     }
 
     // Update is called once per frame
