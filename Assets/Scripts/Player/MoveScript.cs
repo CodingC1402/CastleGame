@@ -10,23 +10,26 @@ public class MoveScript : MonoBehaviour
     [SerializeField] AnimationScript _anim = null;
     [SerializeField] FeetScript _feet = null;
     [SerializeField] float _delayBeforeJump = 0.25f;
-    
+
     bool _isFlipped = false;
     float _jumpCounter = 0;
 
+    public bool isFlipped { get => _isFlipped; }
     public Rigidbody2D rb { get => _rb; }
 
     void Update()
     {
         if (_feet.isOnGround && Input.GetKeyDown(KeyCode.Space) && _jumpCounter <= 0)
         {
-            _anim.triggerJump();
+            _anim.TriggerJump();
             _jumpCounter = _delayBeforeJump;
         }
 
-        if (_jumpCounter > 0) {
+        if (_jumpCounter > 0)
+        {
             _jumpCounter -= Time.deltaTime;
-            if (_jumpCounter <= 0) {
+            if (_jumpCounter <= 0)
+            {
                 rb.AddForce(Vector3.up * _jumpStrength, ForceMode2D.Impulse);
             }
         }
@@ -46,7 +49,8 @@ public class MoveScript : MonoBehaviour
         }
     }
 
-    void Flip() {
+    void Flip()
+    {
         _isFlipped = !_isFlipped;
         gameObject.transform.eulerAngles = new Vector3(0, _isFlipped ? 180 : 0, 0);
     }

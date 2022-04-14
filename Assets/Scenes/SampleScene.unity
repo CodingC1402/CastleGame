@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 925694760}
   - component: {fileID: 925694761}
   - component: {fileID: 925694757}
+  - component: {fileID: 925694763}
   - component: {fileID: 925694762}
   m_Layer: 7
   m_Name: Player
@@ -475,6 +476,29 @@ MonoBehaviour:
   _animator: {fileID: 925694757}
   _rb: {fileID: 925694760}
   _feetScript: {fileID: 1241577853}
+--- !u!114 &925694763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925694756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6298d9b4395b1554699cd156d7ef5e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 925694762}
+  _feet: {fileID: 1241577853}
+  _moveScript: {fileID: 925694759}
+  _attackForces:
+  - 2
+  - 7
+  - -3
+  - 5
+  - -3
+  - 7
+  - -5
 --- !u!1 &984037672
 GameObject:
   m_ObjectHideFlags: 0
