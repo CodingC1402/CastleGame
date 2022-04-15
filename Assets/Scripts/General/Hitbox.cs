@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 [Flags]
 public enum HitboxMask {
@@ -9,12 +10,14 @@ public enum HitboxMask {
     Enemy = 1 << 1,
     Object = 1 << 2
 }
-
 public class Hitbox : MonoBehaviour
 {
+    [SerializeField] CharacterValues _characterValues = null;
     [SerializeField] HitboxMask _mask = 0;
-    [SerializeField] List<Collider2D> _colliders = new List<Collider2D>();
+    [SerializeField] List<Collider2D> _colliders;
+
     public HitboxMask mask { get => _mask; }
+    public CharacterValues characterValues { get => _characterValues; }
 
     public int ComparePriority(Collider2D collider1, Collider2D collider2) {
         var index1 = _colliders.IndexOf(collider1);

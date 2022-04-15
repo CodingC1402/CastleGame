@@ -17,22 +17,30 @@ public struct HitInfo
 
 public class Hurtbox : MonoBehaviour
 {
+    const string HIT_BOX = "Hitbox";
     [SerializeField] HitboxMask _mask = 0;
-    [SerializeField] Collider2D _hurtCollider;
     [SerializeField] bool _singleUse = false;
-
+    [SerializeField] Collider2D[] _colliders;
+    [SerializeField] LayerMask _layerMask = 0;
+    [SerializeField] bool _repeatHit = false;
     Dictionary<Hitbox, HitInfo> _hitInfos = new Dictionary<Hitbox, HitInfo>();
+    List<Hitbox> _excludeHitboxes = new List<Hitbox>();
 
     public HitboxMask mask { get => _mask; }
-    public readonly EventHandler<Hurtbox, HitInfo> callbacks = new EventHandler<Hurtbox, HitInfo>();
+    private readonly EventHandler<Hurtbox, HitInfo> _callbacks = new EventHandler<Hurtbox, HitInfo>();
+    public event EventHandler<Hurtbox, HitInfo>.Callback hit {add => _callbacks.Add(value); remove => _callbacks.Remove(value);}
 
-    void OnTriggerEnter2D(Collider2D other)
+    void Collide(Collider2D other)
     {
         var hitbox = other.gameObject.GetComponent<Hitbox>();
-        if (!hitbox || (_singleUse && _hitInfos.Count > 0)) return;
+        if (!hitbox 
+        || (hitbox.mask & _mask) == 0 
+        || (_singleUse && _hitInfos.Count > 0) 
+        || (!_repeatHit && _excludeHitboxes.IndexOf(hitbox) >= 0)) return;
 
         HitInfo info;
         bool found = _hitInfos.TryGetValue(hitbox, out info);
+
         if (found)
         {
             int compareResult = hitbox.ComparePriority(info.collider, other);
@@ -48,17 +56,28 @@ public class Hurtbox : MonoBehaviour
     }
     void FixedUpdate()
     {
-        StartCoroutine(ExecuteCallbacks());
-    }
-    IEnumerator ExecuteCallbacks()
-    {
-        yield return new WaitForFixedUpdate();
+        foreach(var collider in _colliders) {
+            List<Collider2D> collideWith = new List<Collider2D>();
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.layerMask = _layerMask;
+            filter.useLayerMask = true;
 
-        if (_hitInfos.Count == 0) yield break;
+            collider.OverlapCollider(filter, collideWith);
+            foreach(var other in collideWith) {
+                Collide(other);
+            }
+        }
 
+        if (_hitInfos.Count == 0) return;
         foreach (var info in _hitInfos)
         {
-            callbacks.Invoke(this, info.Value);
+            _callbacks.Invoke(this, info.Value);
+        }
+
+        if (_singleUse) {
+            enabled = false;
+        } else if (!_repeatHit) {
+            _excludeHitboxes.AddRange(_hitInfos.Keys);
         }
 
         _hitInfos.Clear();

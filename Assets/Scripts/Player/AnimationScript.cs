@@ -11,6 +11,7 @@ public class AnimationScript : MonoBehaviour
     const string JUMP = "jump";
     const string ATTACK = "attack";
     const string ATTACKING = "attacking";
+    const string HIT = "hit";
 
     [SerializeField] Animator _animator;
     [SerializeField] Rigidbody2D _rb;
@@ -26,6 +27,9 @@ public class AnimationScript : MonoBehaviour
     public void TriggerAttack() {
         _animator.SetTrigger(ATTACK);
         attacking = true;
+    }
+    public void TriggerHit() {
+        _animator.SetTrigger(HIT);
     }
     public void StopAttack() {
         attacking = false;

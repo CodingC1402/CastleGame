@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6308074709899722183}
   - component: {fileID: 6308074709899722182}
   - component: {fileID: 6308074709899722181}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6458946019748131807}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
