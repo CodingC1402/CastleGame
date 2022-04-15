@@ -5,48 +5,90 @@ using UnityEngine;
 public class MoveScript : MonoBehaviour
 {
     [SerializeField] float _speed = 15f;
+    [SerializeField] float _maxSpeed = 20f;
     [SerializeField] float _jumpStrength = 5f;
     [SerializeField] Rigidbody2D _rb = null;
     [SerializeField] AnimationScript _anim = null;
     [SerializeField] FeetScript _feet = null;
-    [SerializeField] float _delayBeforeJump = 0.25f;
+    [SerializeField] float _jumpDelay = 0.25f;
+    [SerializeField] float _descendStun = 0.25f;
 
+    bool _descending = false;
+    bool _stunned = false;
     bool _isFlipped = false;
-    float _jumpCounter = 0;
 
     public bool isFlipped { get => _isFlipped; }
     public Rigidbody2D rb { get => _rb; }
 
     void Update()
     {
-        if (_feet.isOnGround && Input.GetKeyDown(KeyCode.Space) && _jumpCounter <= 0)
+        if (_feet.isOnGround && Input.GetKeyDown(KeyCode.Space) && !_stunned)
         {
             _anim.TriggerJump();
-            _jumpCounter = _delayBeforeJump;
-        }
-
-        if (_jumpCounter > 0)
-        {
-            _jumpCounter -= Time.deltaTime;
-            if (_jumpCounter <= 0)
-            {
-                rb.AddForce(Vector3.up * _jumpStrength, ForceMode2D.Impulse);
-            }
+            StartCoroutine(ExecuteJump(_rb.velocity));
+            Stun(_jumpDelay);
         }
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
+        Control();
+
+        if (_feet.isOnGround && _descending)
         {
+            _descending = false;
+            Stun(_descendStun);
+        }
+    }
+    void Control()
+    {
+        if (_stunned) return;
+
+        if (Input.GetKey(KeyCode.A) && Mathf.Abs(rb.velocity.x) < _maxSpeed)
+        {
+            if (rb.velocity.x > 0)
+            {
+                rb.velocity = Vector2.up * rb.velocity;
+            }
             rb.AddForce(Vector3.left * _speed, ForceMode2D.Force);
             if (!_isFlipped) Flip();
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) && rb.velocity.x < _maxSpeed)
         {
+            if (rb.velocity.x < 0)
+            {
+                rb.velocity = Vector2.up * rb.velocity;
+            }
             rb.AddForce(Vector3.right * _speed, ForceMode2D.Force);
             if (_isFlipped) Flip();
         }
+    }
+
+    public void Stun(float t)
+    {
+        StartCoroutine(ExecuteStun(t));
+    }
+    IEnumerator ExecuteStun(float t)
+    {
+        rb.velocity = Vector2.zero;
+        _stunned = true;
+
+        yield return new WaitForSeconds(t);
+
+        _stunned = false;
+    }
+
+    IEnumerator ExecuteJump(Vector2 vBeforeJump)
+    {
+        yield return new WaitForSeconds(_jumpDelay);
+
+        rb.velocity = vBeforeJump;
+        rb.AddForce(Vector3.up * _jumpStrength, ForceMode2D.Impulse);
+    }
+
+    public void OnDescending()
+    {
+        _descending = true;
     }
 
     void Flip()
