@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] Collider2D _projecttileCollider;
     [SerializeField] LayerMask _stopMask;
     [SerializeField] Hurtbox _hurtBox;
+    [SerializeField] AudioManager _audioManager;
     Rigidbody2D _rb = null;
 
     void Start()
@@ -44,6 +45,7 @@ public class Projectile : MonoBehaviour
         int count = _projecttileCollider.OverlapCollider(filter, colliders);
         if (count > 0) {
             _rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            _audioManager.Play("hit");
             enabled = false;
             Destroy(gameObject, _delayCleanUp);
         }
@@ -57,8 +59,14 @@ public class Projectile : MonoBehaviour
 
     void HitCharacter(Hurtbox hurtBox, HitInfo info) {
         float result = (info.hitbox.characterValues.health.value -= _damage);
+        Audio audio = _audioManager.GetAudio("hit");
+
+        audio.Play();
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        enabled = false;
+
         Debug.Log($"Health left: {result}");
-        Destroy(gameObject);
+        Destroy(gameObject, audio.clip.length);
     }
 
     void OnDestroy()

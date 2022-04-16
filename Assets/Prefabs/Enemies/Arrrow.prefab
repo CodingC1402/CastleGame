@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 260667949941562498}
   - component: {fileID: 2584317625332462883}
   - component: {fileID: 4135674509363099769}
+  - component: {fileID: 2360154841666752753}
   m_Layer: 8
   m_Name: Arrrow
   m_TagString: Untagged
@@ -232,3 +233,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _hurtBox: {fileID: 4052987102699571602}
+  _audioManager: {fileID: 2360154841666752753}
+--- !u!114 &2360154841666752753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553196828621708642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ba156ee7ac3824790ccf1d32f0e67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _name: hit
+    _clip: {fileID: 8300000, guid: e751f0d0aea7c374995f1427f32294ec, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  _soundSourceObject: {fileID: 8553196828621708642}
