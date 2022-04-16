@@ -33,7 +33,7 @@ public class Attack : MonoBehaviour
             if (_anim.attacking) {
                 _haveQueueUp = true;
             } else {
-                _moveScript.Stun(float.MaxValue);
+                _moveScript.Stun(100);
                 _anim.TriggerAttack();
                 _attackIndex = 0;
                 _hurtBoxIndex = 0;

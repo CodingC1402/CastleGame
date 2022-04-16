@@ -74,6 +74,7 @@ public class MoveScript : MonoBehaviour
         if (_stunCoroutine == null) return;
 
         StopCoroutine(_stunCoroutine);
+        _stunCoroutine = null;
         _stunned  = false;
     }
     IEnumerator ExecuteStun(float t)

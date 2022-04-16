@@ -5207,14 +5207,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925694758}
-  - component: {fileID: 925694759}
   - component: {fileID: 925694760}
   - component: {fileID: 925694765}
   - component: {fileID: 925694757}
+  - component: {fileID: 925694759}
   - component: {fileID: 925694763}
   - component: {fileID: 925694764}
   - component: {fileID: 925694762}
   - component: {fileID: 925694768}
+  - component: {fileID: 925694769}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -5259,6 +5260,7 @@ Transform:
   - {fileID: 1241577852}
   - {fileID: 1410676877}
   - {fileID: 1743429598}
+  - {fileID: 1112937211}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5422,6 +5424,91 @@ MonoBehaviour:
   _hitStunTime: 0.5
   _hitForce: {x: -10, y: 10}
   _hitBoxContainer: {fileID: 1410676876}
+--- !u!114 &925694769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925694756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04342ba07fe5c914c9c18404c04fe067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audios:
+  - _name: walk_1
+    _clip: {fileID: 8300000, guid: 71fae1e87d4527e4cb19a3635f488470, type: 3}
+    _volume: 0.5
+    _stack: 1
+    _loop: 0
+  - _name: walk_2
+    _clip: {fileID: 8300000, guid: b7041486ee847524a8770f8d26c9fca4, type: 3}
+    _volume: 0.5
+    _stack: 1
+    _loop: 0
+  - _name: walk_3
+    _clip: {fileID: 8300000, guid: ef83fd1280d11a648b141af775affe76, type: 3}
+    _volume: 0.5
+    _stack: 1
+    _loop: 0
+  - _name: walk_4
+    _clip: {fileID: 8300000, guid: 50d87699a601b6d4d962f80bf85483ef, type: 3}
+    _volume: 0.5
+    _stack: 1
+    _loop: 0
+  - _name: jump
+    _clip: {fileID: 8300000, guid: 490216c9284707e44a710efcee6e171d, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  - _name: land
+    _clip: {fileID: 8300000, guid: 50d87699a601b6d4d962f80bf85483ef, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  - _name: hit
+    _clip: {fileID: 8300000, guid: 57a0c6b9f9031b146a9dcc7ac509ffb2, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  - _name: slashLight
+    _clip: {fileID: 8300000, guid: 21bbc521779bc6b4eb1130adb97c4c93, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  - _name: slashMedium
+    _clip: {fileID: 8300000, guid: f8b61e03b9e7d784e99f92710e2ef929, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  - _name: slashHeavy
+    _clip: {fileID: 8300000, guid: ba07c1e5c3c9d6845be0c95160f1d4bf, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  - _name: fireExplosion
+    _clip: {fileID: 8300000, guid: a3bd6a4cd7ea930419d8a7b5b028102c, type: 3}
+    _volume: 0.75
+    _stack: 0
+    _loop: 0
+  _soundSourceObject: {fileID: 1112937210}
+  _jumpAudioName: jump
+  _landAudioName: land
+  _hitAudioName: hit
+  _walkAudiosName:
+  - walk_1
+  - walk_2
+  - walk_3
+  - walk_4
+  _attackAudiosName:
+  - slashHeavy
+  - slashLight
+  - slashLight
+  - slashLight
+  - slashHeavy
+  - slashMedium
+  - fireExplosion
 --- !u!1 &984037672
 GameObject:
   m_ObjectHideFlags: 0
@@ -17990,6 +18077,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8732586, y: 1.0447322}
   m_EdgeRadius: 0
+--- !u!1 &1112937210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112937211}
+  m_Layer: 7
+  m_Name: AudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1112937211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112937210}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 925694758}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168903479
 GameObject:
   m_ObjectHideFlags: 0
@@ -18589,6 +18707,7 @@ GameObject:
   - component: {fileID: 1863049823}
   - component: {fileID: 1863049822}
   - component: {fileID: 1863049825}
+  - component: {fileID: 1863049826}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -18687,6 +18806,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1835962723}
+--- !u!81 &1863049826
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863049821}
+  m_Enabled: 1
 --- !u!1001 &6308074709328935898
 PrefabInstance:
   m_ObjectHideFlags: 0
