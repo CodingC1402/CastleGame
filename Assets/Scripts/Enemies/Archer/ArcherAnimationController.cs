@@ -6,7 +6,8 @@ public class ArcherAnimationController : MonoBehaviour
 {
     const string ATTACK = "attack";
     const string HIT = "hit";
-
+    const string DIE = "die";
+    const string DEAD = "dead";
     [SerializeField] Animator _animator;
 
     public void Attack() {
@@ -14,5 +15,9 @@ public class ArcherAnimationController : MonoBehaviour
     }
     public void Hit() {
         _animator.SetTrigger(HIT);
+    }
+    public void Die() {
+        _animator.SetTrigger(DIE);
+        _animator.SetBool(DEAD, true);
     }
 }

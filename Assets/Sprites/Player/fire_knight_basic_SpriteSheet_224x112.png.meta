@@ -3095,7 +3095,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_142
+      name: die_1
       rect:
         serializedVersion: 2
         x: 0
@@ -3116,7 +3116,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_143
+      name: die_2
       rect:
         serializedVersion: 2
         x: 224
@@ -3137,7 +3137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_144
+      name: die_3
       rect:
         serializedVersion: 2
         x: 448
@@ -3158,7 +3158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_145
+      name: die_4
       rect:
         serializedVersion: 2
         x: 672
@@ -3179,7 +3179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_146
+      name: die_5
       rect:
         serializedVersion: 2
         x: 896
@@ -3200,7 +3200,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_147
+      name: die_6
       rect:
         serializedVersion: 2
         x: 1120
@@ -3221,7 +3221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_148
+      name: die_7
       rect:
         serializedVersion: 2
         x: 1344
@@ -3242,7 +3242,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_149
+      name: die_8
       rect:
         serializedVersion: 2
         x: 1568
@@ -3263,7 +3263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_150
+      name: die_9
       rect:
         serializedVersion: 2
         x: 1792
@@ -3284,7 +3284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_151
+      name: die_10
       rect:
         serializedVersion: 2
         x: 2016
@@ -3305,7 +3305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_152
+      name: die_11
       rect:
         serializedVersion: 2
         x: 2240
@@ -3326,7 +3326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_153
+      name: die_12
       rect:
         serializedVersion: 2
         x: 2464
@@ -3347,7 +3347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fire_knight_basic_SpriteSheet_224x112_154
+      name: die_13
       rect:
         serializedVersion: 2
         x: 2688
@@ -3382,7 +3382,7 @@ TextureImporter:
       fire_knight_basic_SpriteSheet_224x112_66: -6005588196136169525
       attack2_re_2: 2290746174259649289
       fire_knight_basic_SpriteSheet_224x112_46: 8321623509726948803
-      fire_knight_basic_SpriteSheet_224x112_148: 256674164345113307
+      die_4: -1568645449660006584
       attack2_3: 4417483134620531782
       fire_knight_basic_SpriteSheet_224x112_71: -1249943025800568156
       attack1_7: 6882369457766011078
@@ -3390,15 +3390,14 @@ TextureImporter:
       fire_knight_basic_SpriteSheet_224x112_130: 7225637222653481309
       fire_knight_basic_SpriteSheet_224x112_123: 4364463479793499471
       fire_knight_basic_SpriteSheet_224x112_75: 1693791889219154928
-      fire_knight_basic_SpriteSheet_224x112_149: 1699689784520212733
       jump_5: 3463218919347189353
       jump_7: -3690615536504680958
-      fire_knight_basic_SpriteSheet_224x112_145: -1568645449660006584
       fire_knight_basic_SpriteSheet_224x112_131: -7117484205109368219
       attack3_1: -7953465745245449324
       attack1_re_3: 4951306699248793545
       idle_7: -229446883792506364
       attack1_6: -8939443390711323297
+      die_10: 3109214383126314295
       attack2_6: 6236392697463326558
       fire_knight_basic_SpriteSheet_224x112_65: -581752573001419995
       attack2_8: 4346086532744785079
@@ -3413,13 +3412,13 @@ TextureImporter:
       jump_3: -2234501625895797169
       fire_knight_basic_SpriteSheet_224x112_124: 8644518394924945508
       attack1_4: 5802394845970043872
-      fire_knight_basic_SpriteSheet_224x112_154: 1296425844463634014
       jump_14: 3202532467747544722
       walk_5: 1086052311278611386
       jump_2: 6367432617614751288
       walk_3: -4954529332065218114
       fire_knight_basic_SpriteSheet_224x112_120: 5820449947900123284
       attack2_1: 1438966585122989571
+      die_12: -8922156262709876587
       fire_knight_basic_SpriteSheet_224x112_113: -3948957534481436913
       fire_knight_basic_SpriteSheet_224x112_111: -5835025509397957213
       jump_17: 4765570103776534796
@@ -3436,8 +3435,7 @@ TextureImporter:
       down_2: -7988690051695467582
       attack1_1: -1230986240012927627
       fire_knight_basic_SpriteSheet_224x112_133: -7656891524950676957
-      fire_knight_basic_SpriteSheet_224x112_150: 4190820453085397910
-      fire_knight_basic_SpriteSheet_224x112_153: -8922156262709876587
+      die_6: 9019281510887646798
       fire_knight_basic_SpriteSheet_224x112_121: -2726581820459021358
       attack2_5: 6858005389958590892
       jump_18: -8325180699715416507
@@ -3446,22 +3444,25 @@ TextureImporter:
       down_3: 6368423838498595357
       fire_knight_basic_SpriteSheet_224x112_122: 4242722209975729235
       jump_6: 6029257046856938540
+      die_11: -8476785990042540499
       attack2_7: -3563544440225112962
       attack2_9: -508831395733718501
       attack3_6: -3085809657840885869
       fire_knight_basic_SpriteSheet_224x112_47: 3751223846769491550
+      die_3: -100697425108995440
       jump_15: 841467638387103087
       fire_knight_basic_SpriteSheet_224x112_108: 4652178097751431905
-      fire_knight_basic_SpriteSheet_224x112_146: 2432798116549482431
-      fire_knight_basic_SpriteSheet_224x112_143: -5629268840277705228
-      fire_knight_basic_SpriteSheet_224x112_42: 4891697900029575751
-      jump_4: -4655889629789182448
-      fire_knight_basic_SpriteSheet_224x112_43: -813176412475448657
+      die_1: 8140421654976226416
       jump_16: 1502191826850654474
+      fire_knight_basic_SpriteSheet_224x112_43: -813176412475448657
+      jump_4: -4655889629789182448
+      fire_knight_basic_SpriteSheet_224x112_42: 4891697900029575751
+      die_8: 1699689784520212733
       attack1_re_2: -2051011066041934433
       hit_4: -6759371849830176171
       jump_19: -1227268287064942019
       jump_20: 7673689768980458548
+      die_7: 256674164345113307
       attack3_11: -7769076558404285518
       walk_7: 6173564673210598882
       fire_knight_basic_SpriteSheet_224x112_135: 5752983049528316734
@@ -3479,6 +3480,7 @@ TextureImporter:
       fire_knight_basic_SpriteSheet_224x112_134: -8173541147081583032
       jump_13: -8683407623479399789
       attack2_10: -7263909823784457150
+      die_13: 1296425844463634014
       attack2_4: 5634684379057246414
       idle_2: 8213560509345386214
       up_2: 247337547825028379
@@ -3487,6 +3489,7 @@ TextureImporter:
       fire_knight_basic_SpriteSheet_224x112_63: 4272823279562676056
       fire_knight_basic_SpriteSheet_224x112_67: -1831435581549056731
       hit_1: 5984543942019614353
+      die_2: -5629268840277705228
       fire_knight_basic_SpriteSheet_224x112_61: 4996201306569563704
       attack3_4: 6377244270820270442
       fire_knight_basic_SpriteSheet_224x112_118: -8494360073671852430
@@ -3497,9 +3500,7 @@ TextureImporter:
       fire_knight_basic_SpriteSheet_224x112_0: 6797136282940470152
       attack3_8: 7723611308387133921
       fire_knight_basic_SpriteSheet_224x112_77: 1569044819565914660
-      fire_knight_basic_SpriteSheet_224x112_142: 8140421654976226416
       fire_knight_basic_SpriteSheet_224x112_64: -8787071838826125714
-      fire_knight_basic_SpriteSheet_224x112_152: -8476785990042540499
       idle_4: -5379688747580490542
       attack1_re_4: 209277624714391941
       attack3_2: -6538928186462211128
@@ -3507,18 +3508,17 @@ TextureImporter:
       attack3_10: 1020933584775616477
       down_1: 1723566486914758992
       fire_knight_basic_SpriteSheet_224x112_119: 410508906510183154
-      fire_knight_basic_SpriteSheet_224x112_151: 3109214383126314295
+      attack2_2: 257703005652486407
       fire_knight_basic_SpriteSheet_224x112_109: 6775762039844432914
       up_1: 9140509010887258538
       fire_knight_basic_SpriteSheet_224x112_76: -1974474849618799243
       attack1_2: 1065113482110459359
-      attack2_2: 257703005652486407
+      die_5: 2432798116549482431
       fire_knight_basic_SpriteSheet_224x112_72: -8671306577809258311
       idle_6: -8777490469332022589
       fire_knight_basic_SpriteSheet_224x112_62: -4865354866782553904
       fire_knight_basic_SpriteSheet_224x112_73: 7127819250917786715
       attack3_3: 5944668568735935801
-      fire_knight_basic_SpriteSheet_224x112_147: 9019281510887646798
       fire_knight_basic_SpriteSheet_224x112_127: -6806566037229715278
       fire_knight_basic_SpriteSheet_224x112_132: -8150678750900501630
       hit_3: -3209088853103884200
@@ -3531,7 +3531,7 @@ TextureImporter:
       walk_4: 6606352062338363404
       fire_knight_basic_SpriteSheet_224x112_56: -3502500369665882015
       hit_6: -4159729919932173868
-      fire_knight_basic_SpriteSheet_224x112_144: -100697425108995440
+      die_9: 4190820453085397910
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

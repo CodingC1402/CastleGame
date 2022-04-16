@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1801907482946129934}
   - component: {fileID: 6840831533904049003}
+  - component: {fileID: 7963403674931484871}
+  - component: {fileID: 4052987102699571602}
   m_Layer: 8
-  m_Name: ArrowTip
+  m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,6 +60,47 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17561245, y: 0.18924332}
   m_EdgeRadius: 0
+--- !u!50 &7963403674931484871
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394419017808871540}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &4052987102699571602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394419017808871540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64f30d42fe7f9c41b53b98342767cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mask: 1
+  _singleUse: 1
+  _colliders:
+  - {fileID: 6840831533904049003}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _repeatHit: 0
 --- !u!1 &8553196828621708642
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +113,6 @@ GameObject:
   - component: {fileID: 260667949941562498}
   - component: {fileID: 2584317625332462883}
   - component: {fileID: 4135674509363099769}
-  - component: {fileID: 1805013348118146813}
   m_Layer: 8
   m_Name: Arrrow
   m_TagString: Untagged
@@ -189,24 +231,4 @@ MonoBehaviour:
   _stopMask:
     serializedVersion: 2
     m_Bits: 64
-  _hurtBox: {fileID: 1805013348118146813}
---- !u!114 &1805013348118146813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8553196828621708642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64f30d42fe7f9c41b53b98342767cfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mask: 1
-  _singleUse: 1
-  _colliders:
-  - {fileID: 6840831533904049003}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  _repeatHit: 0
+  _hurtBox: {fileID: 4052987102699571602}

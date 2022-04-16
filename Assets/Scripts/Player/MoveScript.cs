@@ -16,6 +16,7 @@ public class MoveScript : MonoBehaviour
     bool _descending = false;
     bool _stunned = false;
     bool _isFlipped = false;
+    Coroutine _stunCoroutine = null;
 
     public bool isFlipped { get => _isFlipped; }
     public Rigidbody2D rb { get => _rb; }
@@ -66,7 +67,14 @@ public class MoveScript : MonoBehaviour
 
     public void Stun(float t)
     {
-        StartCoroutine(ExecuteStun(t));
+        if (_stunCoroutine != null) return;
+        _stunCoroutine = StartCoroutine(ExecuteStun(t));
+    }
+    public void StopStun() {
+        if (_stunCoroutine == null) return;
+
+        StopCoroutine(_stunCoroutine);
+        _stunned  = false;
     }
     IEnumerator ExecuteStun(float t)
     {
@@ -75,6 +83,7 @@ public class MoveScript : MonoBehaviour
 
         yield return new WaitForSeconds(t);
 
+        _stunCoroutine = null;
         _stunned = false;
     }
 

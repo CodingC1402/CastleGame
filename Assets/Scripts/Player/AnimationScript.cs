@@ -12,6 +12,8 @@ public class AnimationScript : MonoBehaviour
     const string ATTACK = "attack";
     const string ATTACKING = "attacking";
     const string HIT = "hit";
+    const string HIT_STUNNED = "hitStunned";
+    const string DEAD = "dead";
 
     [SerializeField] Animator _animator;
     [SerializeField] Rigidbody2D _rb;
@@ -21,6 +23,7 @@ public class AnimationScript : MonoBehaviour
     public float ySpeed { get => _animator.GetFloat(Y_SPEED); private set => _animator.SetFloat(Y_SPEED, value);}
     public bool onGround { get => _animator.GetBool(ON_GROUND); private set => _animator.SetBool(ON_GROUND, value);}
     public bool attacking { get => _animator.GetBool(ATTACKING); private set => _animator.SetBool(ATTACKING, value);}
+    public bool hitStunned { get => _animator.GetBool(HIT_STUNNED); private set => _animator.SetBool(HIT_STUNNED, value);}
     public void TriggerJump() {
         _animator.SetTrigger(JUMP);
     }
@@ -30,9 +33,17 @@ public class AnimationScript : MonoBehaviour
     }
     public void TriggerHit() {
         _animator.SetTrigger(HIT);
+        hitStunned = true;
     }
+    public void Die() {
+        _animator.SetBool(DEAD, true);
+    }
+    
     public void StopAttack() {
         attacking = false;
+    }
+    public void StopHitStun() {
+        hitStunned = false;
     }
 
     public void TransitToIdle() {

@@ -32,15 +32,16 @@ public class Hurtbox : MonoBehaviour
 
     void Collide(Collider2D other)
     {
-        var hitbox = other.gameObject.GetComponent<Hitbox>();
+        var hitbox = other.attachedRigidbody.gameObject.GetComponent<Hitbox>();
         if (!hitbox 
         || (hitbox.mask & _mask) == 0 
+        || (hitbox.GetIndex(other) < 0)
         || (_singleUse && _hitInfos.Count > 0) 
         || (!_repeatHit && _excludeHitboxes.IndexOf(hitbox) >= 0)) return;
 
+        Debug.Log("hit");
         HitInfo info;
         bool found = _hitInfos.TryGetValue(hitbox, out info);
-
         if (found)
         {
             int compareResult = hitbox.ComparePriority(info.collider, other);
@@ -57,6 +58,8 @@ public class Hurtbox : MonoBehaviour
     void FixedUpdate()
     {
         foreach(var collider in _colliders) {
+            if (!collider.isActiveAndEnabled) continue;
+
             List<Collider2D> collideWith = new List<Collider2D>();
             ContactFilter2D filter = new ContactFilter2D();
             filter.layerMask = _layerMask;
@@ -81,5 +84,9 @@ public class Hurtbox : MonoBehaviour
         }
 
         _hitInfos.Clear();
+    }
+
+    public void ResetExcludeInfos() {
+        _excludeHitboxes.Clear();
     }
 }

@@ -28,4 +28,9 @@ public class Hitbox : MonoBehaviour
 
         return 0;
     }
+
+    public int GetIndex(Collider2D collider) {
+        int index = _colliders.IndexOf(collider);
+        return index;
+    }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemiesMoveScript : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D _rb;
+    public Rigidbody2D rb {get => _rb;}
     bool _isFlipped = false;
     public bool isFlipped { get => _isFlipped; }
 
